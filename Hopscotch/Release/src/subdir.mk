@@ -5,15 +5,18 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/Hopscotch.cpp \
-../src/LFHash.cpp 
+../src/LFHash.cpp \
+../src/workload.cpp 
 
 OBJS += \
 ./src/Hopscotch.o \
-./src/LFHash.o 
+./src/LFHash.o \
+./src/workload.o 
 
 CPP_DEPS += \
 ./src/Hopscotch.d \
-./src/LFHash.d 
+./src/LFHash.d \
+./src/workload.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -10,6 +10,7 @@
 #include <chrono>
 #include <unistd.h>
 #include "LFHash.h"
+#include "workload.h"
 
 int THREADS;
 int DATAPERTHREAD;
@@ -20,44 +21,52 @@ unsigned int *dataset;
 unsigned int *randArray;
 int contains, inserts, deletes;
 
-void insertKey(LFHash *h, int tid)
+void insertKey(LFHash *h, workload *wx, int tid)
 {
     unsigned int key = 0;
     for(int i=0;i<DATAPERTHREAD;i++)
     {
-        key=tid*DATAPERTHREAD + i  +1;
-        if(h->add(key, tid))
-            dataset[datacounter.fetch_add(1)]=key;
+        key=wx->get(tid*DATAPERTHREAD + i);
+        if(!h->add(key, tid))
+        	printf("\n Error Key Insertion ");
+
     }
 }
-void checkKeys(LFHash *h, int index)
+void lookUp(LFHash *h, workload *wx, int tid)
 {
-
+	unsigned int key = 0;
     for(int i=0;i<DATAPERTHREAD;i++)
     {
-        if(!h->contains(dataset[index*DATAPERTHREAD+i]))
-        {
-            std::cout <<" FAILURE " << dataset[index*DATAPERTHREAD+i]<<"\n ";
-        }
+    	key=wx->get(tid*DATAPERTHREAD + i);
+        if(!h->contains(key))
+        	printf(" \n Error in Key Retrieval %d ", key);
     }
 }
-void worker(LFHash *h, int tid)
+void clearAll(LFHash *h, workload *wx, int tid)
+{
+	unsigned int key = 0;
+    for(int i=0;i<DATAPERTHREAD;i++)
+    {
+    	key=wx->get(tid*DATAPERTHREAD + i);
+        if(!h->Remove(key))
+        	printf(" \n Error in Key Removal %d ", key);
+    }
+}
+void worker(LFHash *h, workload *wx, int tid)
 {
     int key=0;
-    for(int i=0;i<contains;i++)
-        if(!h->contains(dataset[randArray[tid * contains + i]]))
-            printf(" \n ERRRO PROPAGATED ");
+    for(int i=0;i<wx->tcx;i++)
+    	if(!h->contains(wx->lookUps[tid*wx->tcx + i]))
+    		printf(" \n Error in Key Retrieval %d ", wx->lookUps[tid*wx->tcx + i]);
 
-    for(int x=0;x<inserts;x++)
-    {
-        key = randArray[tid * inserts + x];
-        h->add(key,tid);
-    }
-    /*for(int x=0;x<deletes;x++)
-    {
-        key = -1
-        h->Remove(key);
-    }*/
+    for(int i=0;i<wx->trx;i++)
+    	if(!h->Remove(wx->removes[tid*wx->trx + i]))
+    	    printf(" \n Error in Key Removal %d ", wx->removes[tid*wx->trx + i]);
+
+    for(int i=0;i<wx->tix;i++)
+        	if(!h->add(wx->adds[tid*wx->tix + i],tid))
+        	    printf(" \n Error in Key Insertion %d ", wx->adds[tid*wx->tix + i]);
+
 }
 
 int main (int argc, char* argv[])
@@ -65,97 +74,43 @@ int main (int argc, char* argv[])
 
     THREADS=atoi(argv[1]);
     DATAPERTHREAD=TOTDATA/THREADS;
-    dataset = new unsigned int [TOTDATA];
-    randArray = new unsigned int[TOTDATA];
-
-    for(int i=0;i<TOTDATA ;i++)
-    {
-        dataset[i]=0;
-        randArray[i]=rand()% TOTDATA + 1;
-    }
     LFHash h;
+    workload wx;
     std::vector<std::thread> Threads;
-    std::vector<std::thread> ContainThreads;
     auto starty = chrono::steady_clock::now();
     for(int i=0;i<THREADS;i++)
-    {
-        Threads.push_back(std::thread(insertKey, &h, i));
-    }
+        Threads.push_back(std::thread(insertKey,&h,&wx,i));
     gettimeofday(&start, NULL);
     for(int i=0;i<THREADS;i++)
-    {
         Threads[i].join();
-    }
     auto endy = chrono::steady_clock::now();
-    cout << "Build Elapsed time in milliseconds : "
-         << chrono::duration_cast<chrono::milliseconds>(endy - starty).count()
-         << " ms" << endl;
-
-    starty = chrono::steady_clock::now();
-    for(int i=0;i<THREADS;i++) {
-        ContainThreads.push_back(std::thread(checkKeys, &h, i));
-    }
-    for(int i=0;i<THREADS;i++)
-    {
-        ContainThreads[i].join();
-    }
-
-
-
-    endy = chrono::steady_clock::now();
     double el = chrono::duration_cast<chrono::milliseconds>(endy - starty).count();
-    cout << "Retreival Elapsed time in milliseconds : "
-         << el
-         << " ms" << endl;
-    cout<<" Throughput " << ((TOTDATA/el)*1000)/1000000 <<"\n";
+    cout << "[100% Insertion] " << " Time = "
+         << el <<" milliseconds " <<" Throughput = " << ((TOTDATA/el)*1000)/1000000 <<" MQPS \n";
 
 
-    cout<<"\n [90-5-5] (1) [80-10-10] (2) [60-30-30] (3) [30-30-30] (4) \n";
-    int choice;
-    cin>>choice;
-    switch(choice)
-    {
-        case 1:
-        {
-            contains = (int)(TOTDATA*0.9)/THREADS;
-            inserts =  (int)(TOTDATA*0.05)/THREADS;
-            deletes =  (int)(TOTDATA*0.05)/THREADS;
-            break;
-        }
-        case 2:
-        {
-            contains = (int)(TOTDATA*0.8)/THREADS;
-            inserts =  (int)(TOTDATA*0.1)/THREADS;
-            deletes =  (int)(TOTDATA*0.1)/THREADS;
-            break;
-        }
-        case 3:
-        {
-            contains = (int)(TOTDATA*0.6)/THREADS;
-            inserts =  (int)(TOTDATA*0.2)/THREADS;
-            deletes =  (int)(TOTDATA*0.2)/THREADS;
-            break;
-        }
-        case 4:
-        {
-            contains = (int)(TOTDATA*0.4)/THREADS;
-            inserts =  (int)(TOTDATA*0.3)/THREADS;
-            deletes =  (int)(TOTDATA*0.3)/THREADS;
-            cout<< contains <<"  " << inserts <<"  "<<deletes;
-            break;
-        }
-    }
-    std::vector<std::thread> threads;
+    std::vector<std::thread> ContainThreads;
     starty = chrono::steady_clock::now();
-    for(int i=0;i<THREADS;i++) {
-        threads.push_back(std::thread(worker, &h, i));
-    }
     for(int i=0;i<THREADS;i++)
-        threads[i].join();
+        ContainThreads.push_back(std::thread(lookUp, &h, &wx, i));
+    for(int i=0;i<THREADS;i++)
+        ContainThreads[i].join();
     endy = chrono::steady_clock::now();
     el = chrono::duration_cast<chrono::milliseconds>(endy - starty).count();
-    cout << "Elapsed time in milliseconds : "
-         << el
-         << " ms" << endl;
+    cout << "[100% Look  Ups] " << " Time = "
+             << el <<" milliseconds " <<" Throughput = " << ((TOTDATA/el)*1000)/1000000 <<" MQPS \n";
+
+    wx.workSplit(1000000,50000,50000,THREADS);
+    std::vector<std::thread> MixThreads;
+    starty = chrono::steady_clock::now();
+    for(int i=0;i<THREADS;i++)
+            MixThreads.push_back(std::thread(worker, &h, &wx, i));
+    for(int i=0;i<THREADS;i++)
+            MixThreads[i].join();
+    endy = chrono::steady_clock::now();
+    el = chrono::duration_cast<chrono::milliseconds>(endy - starty).count();
+    cout << "[Mix Workload  ] " << " Time = "
+                 << el <<" milliseconds " <<" Throughput = " << (((1000000+100000)/el)*1000)/1000000 <<" MQPS \n";
+
     return 0;
 }

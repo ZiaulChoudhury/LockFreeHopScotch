@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <chrono>
 #include <unistd.h>
-#define TOTDATA 1024*1024*8
+#define TOTDATA 1024*1024*10
 #define TotalBuckets   20971520
 #define mmix(h,k) { k *= m; k ^= k >> r; k *= m; h *= m; h ^= k; }
 

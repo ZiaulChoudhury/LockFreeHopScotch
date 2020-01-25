@@ -1,0 +1,17 @@
+/*
+ * workload.h
+ *
+ *  Created on: 26-Jan-2020
+ *      Author: ziaul
+ */
+
+#ifndef WORKLOAD_H_
+#define WORKLOAD_H_
+
+class workload {
+public:
+	workload();
+	virtual ~workload();
+};
+
+#endif /* WORKLOAD_H_ */

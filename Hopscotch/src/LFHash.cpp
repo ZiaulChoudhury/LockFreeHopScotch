@@ -148,24 +148,28 @@ bool LFHash::contains(unsigned int key)
 
 bool LFHash::Remove(unsigned int key)
 {
-    unsigned int InitialSlot =  MurmurHash2A((const void*)&key, 4, TotalBuckets);
-    unsigned long _SlotEntry=0;
-    bool rem = false;
-    unsigned long random;
-    for(int p=0;p<=H;p++)
-    {
-        _SlotEntry=key;
-        rem = Buckets[InitialSlot+p].compare_exchange_strong(_SlotEntry,0);
-        _SlotEntry|=(1L<<62);
-        rem = Buckets[InitialSlot+p].compare_exchange_strong(_SlotEntry,0);
-        _SlotEntry = Buckets[InitialSlot + p].load();
-        _SlotEntry=((_SlotEntry<<2)>>2)|(3L << 62);
-        random = INT_MAX;
-        random=((random<<2)>>2)|(3L << 62);
-        Buckets[InitialSlot + p].compare_exchange_strong(_SlotEntry, random);
+	unsigned int InitialSlot =  MurmurHash2A((const void*)&key, 4, TotalBuckets);
+	    unsigned long _SlotEntry=0;
+	    bool rem1 = false;
+	    bool rem2 = false;
+	    unsigned long random;
+	    for(int p=0;p<=H;p++)
+	    {
+	        _SlotEntry=key;
+	        if(Buckets[InitialSlot+p].compare_exchange_strong(_SlotEntry,0))
+	            rem1 = true;
+	        _SlotEntry|=(1L<<62);
+	        if(Buckets[InitialSlot+p].compare_exchange_strong(_SlotEntry,0))
+	            rem2 = true;
+	        _SlotEntry = Buckets[InitialSlot + p].load();
+	        _SlotEntry=((_SlotEntry<<2)>>2)|(3L << 62);
+	        random = INT_MAX;
+	        random=((random<<2)>>2)|(3L << 62);
+	        Buckets[InitialSlot + p].compare_exchange_strong(_SlotEntry, random);
 
-    }
-    return rem;
+	    }
+	    return rem1 or rem2;
+
 }
 
 LFHash::LFHash()

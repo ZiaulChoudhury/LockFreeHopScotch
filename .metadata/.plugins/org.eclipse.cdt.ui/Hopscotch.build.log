@@ -1,0 +1,6 @@
+23:36:18 **** Incremental Build of configuration Release for project Hopscotch ****
+make all 
+make: Nothing to be done for `all'.
+
+23:36:18 Build Finished. 0 errors, 0 warnings. (took 76ms)
+

@@ -1,0 +1,18 @@
+/*
+ * LFHash.cpp
+ *
+ *  Created on: 24-Jan-2020
+ *      Author: ziaul
+ */
+
+#include "LFHash.h"
+
+LFHash::LFHash() {
+	// TODO Auto-generated constructor stub
+
+}
+
+LFHash::~LFHash() {
+	// TODO Auto-generated destructor stub
+}
+

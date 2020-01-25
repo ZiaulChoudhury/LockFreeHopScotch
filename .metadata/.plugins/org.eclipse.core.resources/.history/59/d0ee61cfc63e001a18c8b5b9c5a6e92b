@@ -1,0 +1,17 @@
+/*
+ * LFHash.h
+ *
+ *  Created on: 24-Jan-2020
+ *      Author: ziaul
+ */
+
+#ifndef LFHASH_H_
+#define LFHASH_H_
+
+class LFHash {
+public:
+	LFHash();
+	virtual ~LFHash();
+};
+
+#endif /* LFHASH_H_ */

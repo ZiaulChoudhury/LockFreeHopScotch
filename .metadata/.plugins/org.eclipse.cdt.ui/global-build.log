@@ -1,0 +1,607 @@
+21:52:15 **** Build of configuration Debug for project Hopscotch ****
+make all 
+Building file: ../src/Hopscotch.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Hopscotch.d" -MT"src/Hopscotch.o" -o "src/Hopscotch.o" "../src/Hopscotch.cpp"
+Finished building: ../src/Hopscotch.cpp
+ 
+Building target: Hopscotch
+Invoking: MacOS X C++ Linker
+g++  -o "Hopscotch"  ./src/Hopscotch.o   
+Finished building target: Hopscotch
+ 
+21:52:22 **** Incremental Build of configuration Debug for project Hopscotch ****
+make all 
+make: Nothing to be done for `all'.
+22:01:40 **** Incremental Build of configuration Debug for project Hopscotch ****
+make all 
+Building file: ../src/Hopscotch.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Hopscotch.d" -MT"src/Hopscotch.o" -o "src/Hopscotch.o" "../src/Hopscotch.cpp"
+In file included from ../src/Hopscotch.cpp:2:
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/atomic:539:2: error: <atomic> is not implemented
+#error <atomic> is not implemented
+ ^
+In file included from ../src/Hopscotch.cpp:12:
+../src/LFHash.h:20:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> TimeCounter;
+    ~~~~~^
+../src/LFHash.h:20:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> TimeCounter;
+    ~~~~~~~~~~~^
+../src/LFHash.h:122:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> *Buckets;
+    ~~~~~^
+../src/LFHash.h:122:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> *Buckets;
+    ~~~~~~~~~~~^
+../src/LFHash.h:123:19: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    int ADD_RANGE = 256;//512;
+                  ^
+../src/LFHash.h:124:20: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    unsigned int H = 32;//64;
+                   ^
+../src/LFHash.h:125:17: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    int KEYINFO = 28;
+                ^
+../src/LFHash.h:128:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> substract;
+    ~~~~~^
+../src/LFHash.h:128:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> substract;
+    ~~~~~~~~~~~^
+../src/LFHash.h:81:41: error: use of undeclared identifier 'Buckets'
+        unsigned int StoredKey = getKey(Buckets[index].load());
+                                        ^
+../src/LFHash.h:102:16: error: use of undeclared identifier 'Buckets'
+            if(Buckets[i].load()!=0)
+               ^
+../src/LFHash.h:110:16: error: use of undeclared identifier 'Buckets'
+            if(Buckets[i].load()!=0)
+               ^
+../src/LFHash.h:112:42: error: use of undeclared identifier 'Buckets'
+                std::cout<< this->getKey(Buckets[i].load()) << "\n";
+                                         ^
+../src/Hopscotch.cpp:18:6: error: no type named 'atomic' in namespace 'std'
+std::atomic<int> datacounter (0);
+~~~~~^
+../src/Hopscotch.cpp:18:12: error: expected unqualified-id
+std::atomic<int> datacounter (0);
+           ^
+../src/Hopscotch.cpp:30:21: error: use of undeclared identifier 'datacounter'
+            dataset[datacounter.fetch_add(1)]=key;
+                    ^
+../src/Hopscotch.cpp:79:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto starty = chrono::steady_clock::now();
+    ^
+../src/Hopscotch.cpp:82:27: error: no matching constructor for initialization of 'std::thread'
+        Threads.push_back(std::thread(insertKey, &h, i));
+                          ^           ~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+../src/Hopscotch.cpp:89:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto endy = chrono::steady_clock::now();
+    ^
+../src/Hopscotch.cpp:96:34: error: no matching constructor for initialization of 'std::thread'
+        ContainThreads.push_back(std::thread(checkKeys, &h, i));
+                                 ^           ~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+../src/Hopscotch.cpp:151:27: error: no matching constructor for initialization of 'std::thread'
+        threads.push_back(std::thread(worker, &h, i));
+                          ^           ~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+In file included from ../src/Hopscotch.cpp:1:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iostream:38:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/ios:216:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/string:439:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/algorithm:628:
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/memory:1466:36: error: calling a private constructor of class 'std::__1::thread'
+                ::new ((void*)__p) _Tp(__a0);
+                                   ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/vector:1582:25: note: in instantiation of function template specialization 'std::__1::allocator_traits<std::__1::allocator<std::__1::thread> >::construct<std::__1::thread, std::__1::thread>' requested here
+        __alloc_traits::construct(this->__alloc(),
+                        ^
+../src/Hopscotch.cpp:82:17: note: in instantiation of member function 'std::__1::vector<std::__1::thread, std::__1::allocator<std::__1::thread> >::push_back' requested here
+        Threads.push_back(std::thread(insertKey, &h, i));
+                ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: implicitly declared private here
+    thread(const thread&);
+    ^
+5 warnings and 18 errors generated.
+make: *** [src/Hopscotch.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:04:30 **** Incremental Build of configuration Debug for project Hopscotch ****
+make all 
+Building file: ../src/Hopscotch.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Hopscotch.d" -MT"src/Hopscotch.o" -o "src/Hopscotch.o" "../src/Hopscotch.cpp"
+In file included from ../src/Hopscotch.cpp:2:
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/atomic:539:2: error: <atomic> is not implemented
+#error <atomic> is not implemented
+ ^
+In file included from ../src/Hopscotch.cpp:12:
+../src/LFHash.h:20:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> TimeCounter;
+    ~~~~~^
+../src/LFHash.h:20:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> TimeCounter;
+    ~~~~~~~~~~~^
+../src/LFHash.h:122:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> *Buckets;
+    ~~~~~^
+../src/LFHash.h:122:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> *Buckets;
+    ~~~~~~~~~~~^
+../src/LFHash.h:123:19: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    int ADD_RANGE = 256;//512;
+                  ^
+../src/LFHash.h:124:20: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    unsigned int H = 32;//64;
+                   ^
+../src/LFHash.h:125:17: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    int KEYINFO = 28;
+                ^
+../src/LFHash.h:128:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> substract;
+    ~~~~~^
+../src/LFHash.h:128:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> substract;
+    ~~~~~~~~~~~^
+../src/LFHash.h:81:41: error: use of undeclared identifier 'Buckets'
+        unsigned int StoredKey = getKey(Buckets[index].load());
+                                        ^
+../src/LFHash.h:102:16: error: use of undeclared identifier 'Buckets'
+            if(Buckets[i].load()!=0)
+               ^
+../src/LFHash.h:110:16: error: use of undeclared identifier 'Buckets'
+            if(Buckets[i].load()!=0)
+               ^
+../src/LFHash.h:112:42: error: use of undeclared identifier 'Buckets'
+                std::cout<< this->getKey(Buckets[i].load()) << "\n";
+                                         ^
+../src/Hopscotch.cpp:18:6: error: no type named 'atomic' in namespace 'std'
+std::atomic<int> datacounter (0);
+~~~~~^
+../src/Hopscotch.cpp:18:12: error: expected unqualified-id
+std::atomic<int> datacounter (0);
+           ^
+../src/Hopscotch.cpp:30:21: error: use of undeclared identifier 'datacounter'
+            dataset[datacounter.fetch_add(1)]=key;
+                    ^
+../src/Hopscotch.cpp:79:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto starty = chrono::steady_clock::now();
+    ^
+../src/Hopscotch.cpp:82:27: error: no matching constructor for initialization of 'std::thread'
+        Threads.push_back(std::thread(insertKey, &h, i));
+                          ^           ~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+../src/Hopscotch.cpp:89:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto endy = chrono::steady_clock::now();
+    ^
+../src/Hopscotch.cpp:96:34: error: no matching constructor for initialization of 'std::thread'
+        ContainThreads.push_back(std::thread(checkKeys, &h, i));
+                                 ^           ~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+../src/Hopscotch.cpp:151:27: error: no matching constructor for initialization of 'std::thread'
+        threads.push_back(std::thread(worker, &h, i));
+                          ^           ~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+In file included from ../src/Hopscotch.cpp:1:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iostream:38:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/ios:216:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/string:439:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/algorithm:628:
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/memory:1466:36: error: calling a private constructor of class 'std::__1::thread'
+                ::new ((void*)__p) _Tp(__a0);
+                                   ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/vector:1582:25: note: in instantiation of function template specialization 'std::__1::allocator_traits<std::__1::allocator<std::__1::thread> >::construct<std::__1::thread, std::__1::thread>' requested here
+        __alloc_traits::construct(this->__alloc(),
+                        ^
+../src/Hopscotch.cpp:82:17: note: in instantiation of member function 'std::__1::vector<std::__1::thread, std::__1::allocator<std::__1::thread> >::push_back' requested here
+        Threads.push_back(std::thread(insertKey, &h, i));
+                ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: implicitly declared private here
+    thread(const thread&);
+    ^
+5 warnings and 18 errors generated.
+make: *** [src/Hopscotch.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:22:35 **** Incremental Build of configuration Debug for project Hopscotch ****
+make all 
+Building file: ../src/Hopscotch.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -std=c++11 -c -fmessage-length=0 -MMD -MP -MF"src/Hopscotch.d" -MT"src/Hopscotch.o" -o "src/Hopscotch.o" "../src/Hopscotch.cpp"
+Finished building: ../src/Hopscotch.cpp
+ 
+Building file: ../src/LFHash.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -std=c++11 -c -fmessage-length=0 -MMD -MP -MF"src/LFHash.d" -MT"src/LFHash.o" -o "src/LFHash.o" "../src/LFHash.cpp"
+In file included from ../src/LFHash.cpp:2:
+../src/LFHash.h:125:9: warning: private field 'KEYINFO' is not used [-Wunused-private-field]
+    int KEYINFO = 28;
+        ^
+1 warning generated.
+Finished building: ../src/LFHash.cpp
+ 
+Building target: Hopscotch
+Invoking: MacOS X C++ Linker
+g++  -o "Hopscotch"  ./src/Hopscotch.o ./src/LFHash.o   
+Finished building target: Hopscotch
+ 
+22:22:45 **** Incremental Build of configuration Debug for project Hopscotch ****
+make all 
+make: Nothing to be done for `all'.
+22:23:03 **** Incremental Build of configuration Debug for project Hopscotch ****
+make all 
+make: Nothing to be done for `all'.
+22:23:54 **** Incremental Build of configuration Debug for project Hopscotch ****
+make all 
+Building target: Hopscotch
+Invoking: MacOS X C++ Linker
+g++  -o "Hopscotch"  ./src/Hopscotch.o ./src/LFHash.o   -l-lpthread
+ld: library not found for -l-lpthread
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [Hopscotch] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:24:55 **** Incremental Build of configuration Debug for project Hopscotch ****
+make all 
+Building target: Hopscotch
+Invoking: MacOS X C++ Linker
+g++  -o "Hopscotch"  ./src/Hopscotch.o ./src/LFHash.o   -lpthread
+Finished building target: Hopscotch
+ 
+22:25:03 **** Incremental Build of configuration Debug for project Hopscotch ****
+make all 
+make: Nothing to be done for `all'.
+22:25:53 **** Clean-only build of configuration Debug for project Hopscotch ****
+make clean 
+rm -rf  ./src/Hopscotch.o ./src/LFHash.o  ./src/Hopscotch.d ./src/LFHash.d  Hopscotch
+ 
+22:26:27 **** Build of configuration Debug for project Hopscotch ****
+make all 
+Building file: ../src/Hopscotch.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -std=c++11 -c -fmessage-length=0 -MMD -MP -MF"src/Hopscotch.d" -MT"src/Hopscotch.o" -o "src/Hopscotch.o" "../src/Hopscotch.cpp"
+Finished building: ../src/Hopscotch.cpp
+ 
+Building file: ../src/LFHash.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -std=c++11 -c -fmessage-length=0 -MMD -MP -MF"src/LFHash.d" -MT"src/LFHash.o" -o "src/LFHash.o" "../src/LFHash.cpp"
+In file included from ../src/LFHash.cpp:2:
+../src/LFHash.h:125:9: warning: private field 'KEYINFO' is not used [-Wunused-private-field]
+    int KEYINFO = 28;
+        ^
+1 warning generated.
+Finished building: ../src/LFHash.cpp
+ 
+Building target: Hopscotch
+Invoking: MacOS X C++ Linker
+g++  -o "Hopscotch"  ./src/Hopscotch.o ./src/LFHash.o   -lpthread
+Finished building target: Hopscotch
+ 
+22:27:51 **** Incremental Build of configuration Release for project Hopscotch ****
+make all 
+Building file: ../src/Hopscotch.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Hopscotch.d" -MT"src/Hopscotch.o" -o "src/Hopscotch.o" "../src/Hopscotch.cpp"
+In file included from ../src/Hopscotch.cpp:2:
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/atomic:539:2: error: <atomic> is not implemented
+#error <atomic> is not implemented
+ ^
+In file included from ../src/Hopscotch.cpp:12:
+../src/LFHash.h:20:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> TimeCounter;
+    ~~~~~^
+../src/LFHash.h:20:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> TimeCounter;
+    ~~~~~~~~~~~^
+../src/LFHash.h:122:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> *Buckets;
+    ~~~~~^
+../src/LFHash.h:122:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> *Buckets;
+    ~~~~~~~~~~~^
+../src/LFHash.h:123:19: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    int ADD_RANGE = 256;//512;
+                  ^
+../src/LFHash.h:124:20: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    unsigned int H = 32;//64;
+                   ^
+../src/LFHash.h:125:17: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    int KEYINFO = 28;
+                ^
+../src/LFHash.h:128:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> substract;
+    ~~~~~^
+../src/LFHash.h:128:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> substract;
+    ~~~~~~~~~~~^
+../src/LFHash.h:81:41: error: use of undeclared identifier 'Buckets'
+        unsigned int StoredKey = getKey(Buckets[index].load());
+                                        ^
+../src/LFHash.h:102:16: error: use of undeclared identifier 'Buckets'
+            if(Buckets[i].load()!=0)
+               ^
+../src/LFHash.h:110:16: error: use of undeclared identifier 'Buckets'
+            if(Buckets[i].load()!=0)
+               ^
+../src/LFHash.h:112:42: error: use of undeclared identifier 'Buckets'
+                std::cout<< this->getKey(Buckets[i].load()) << "\n";
+                                         ^
+../src/Hopscotch.cpp:18:6: error: no type named 'atomic' in namespace 'std'
+std::atomic<int> datacounter (0);
+~~~~~^
+../src/Hopscotch.cpp:18:12: error: expected unqualified-id
+std::atomic<int> datacounter (0);
+           ^
+../src/Hopscotch.cpp:30:21: error: use of undeclared identifier 'datacounter'
+            dataset[datacounter.fetch_add(1)]=key;
+                    ^
+../src/Hopscotch.cpp:79:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto starty = chrono::steady_clock::now();
+    ^
+../src/Hopscotch.cpp:82:27: error: no matching constructor for initialization of 'std::thread'
+        Threads.push_back(std::thread(insertKey, &h, i));
+                          ^           ~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+../src/Hopscotch.cpp:89:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto endy = chrono::steady_clock::now();
+    ^
+../src/Hopscotch.cpp:96:34: error: no matching constructor for initialization of 'std::thread'
+        ContainThreads.push_back(std::thread(checkKeys, &h, i));
+                                 ^           ~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+../src/Hopscotch.cpp:151:27: error: no matching constructor for initialization of 'std::thread'
+        threads.push_back(std::thread(worker, &h, i));
+                          ^           ~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+In file included from ../src/Hopscotch.cpp:1:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iostream:38:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/ios:216:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/string:439:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/algorithm:628:
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/memory:1466:36: error: calling a private constructor of class 'std::__1::thread'
+                ::new ((void*)__p) _Tp(__a0);
+                                   ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/vector:1582:25: note: in instantiation of function template specialization 'std::__1::allocator_traits<std::__1::allocator<std::__1::thread> >::construct<std::__1::thread, std::__1::thread>' requested here
+        __alloc_traits::construct(this->__alloc(),
+                        ^
+../src/Hopscotch.cpp:82:17: note: in instantiation of member function 'std::__1::vector<std::__1::thread, std::__1::allocator<std::__1::thread> >::push_back' requested here
+        Threads.push_back(std::thread(insertKey, &h, i));
+                ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: implicitly declared private here
+    thread(const thread&);
+    ^
+5 warnings and 18 errors generated.
+make: *** [src/Hopscotch.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:28:01 **** Clean-only build of configuration Release for project Hopscotch ****
+make clean 
+rm -rf  ./src/Hopscotch.o ./src/LFHash.o  ./src/Hopscotch.d ./src/LFHash.d  Hopscotch
+ 
+22:28:04 **** Build of configuration Release for project Hopscotch ****
+make all 
+Building file: ../src/Hopscotch.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Hopscotch.d" -MT"src/Hopscotch.o" -o "src/Hopscotch.o" "../src/Hopscotch.cpp"
+In file included from ../src/Hopscotch.cpp:2:
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/atomic:539:2: error: <atomic> is not implemented
+#error <atomic> is not implemented
+ ^
+In file included from ../src/Hopscotch.cpp:12:
+../src/LFHash.h:20:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> TimeCounter;
+    ~~~~~^
+../src/LFHash.h:20:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> TimeCounter;
+    ~~~~~~~~~~~^
+../src/LFHash.h:122:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> *Buckets;
+    ~~~~~^
+../src/LFHash.h:122:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> *Buckets;
+    ~~~~~~~~~~~^
+../src/LFHash.h:123:19: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    int ADD_RANGE = 256;//512;
+                  ^
+../src/LFHash.h:124:20: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    unsigned int H = 32;//64;
+                   ^
+../src/LFHash.h:125:17: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    int KEYINFO = 28;
+                ^
+../src/LFHash.h:128:10: error: no type named 'atomic' in namespace 'std'
+    std::atomic<unsigned long> substract;
+    ~~~~~^
+../src/LFHash.h:128:16: error: expected member name or ';' after declaration specifiers
+    std::atomic<unsigned long> substract;
+    ~~~~~~~~~~~^
+../src/LFHash.h:81:41: error: use of undeclared identifier 'Buckets'
+        unsigned int StoredKey = getKey(Buckets[index].load());
+                                        ^
+../src/LFHash.h:102:16: error: use of undeclared identifier 'Buckets'
+            if(Buckets[i].load()!=0)
+               ^
+../src/LFHash.h:110:16: error: use of undeclared identifier 'Buckets'
+            if(Buckets[i].load()!=0)
+               ^
+../src/LFHash.h:112:42: error: use of undeclared identifier 'Buckets'
+                std::cout<< this->getKey(Buckets[i].load()) << "\n";
+                                         ^
+../src/Hopscotch.cpp:18:6: error: no type named 'atomic' in namespace 'std'
+std::atomic<int> datacounter (0);
+~~~~~^
+../src/Hopscotch.cpp:18:12: error: expected unqualified-id
+std::atomic<int> datacounter (0);
+           ^
+../src/Hopscotch.cpp:30:21: error: use of undeclared identifier 'datacounter'
+            dataset[datacounter.fetch_add(1)]=key;
+                    ^
+../src/Hopscotch.cpp:79:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto starty = chrono::steady_clock::now();
+    ^
+../src/Hopscotch.cpp:82:27: error: no matching constructor for initialization of 'std::thread'
+        Threads.push_back(std::thread(insertKey, &h, i));
+                          ^           ~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+../src/Hopscotch.cpp:89:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto endy = chrono::steady_clock::now();
+    ^
+../src/Hopscotch.cpp:96:34: error: no matching constructor for initialization of 'std::thread'
+        ContainThreads.push_back(std::thread(checkKeys, &h, i));
+                                 ^           ~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+../src/Hopscotch.cpp:151:27: error: no matching constructor for initialization of 'std::thread'
+        threads.push_back(std::thread(worker, &h, i));
+                          ^           ~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:374:9: note: candidate constructor template not viable: requires single argument '__f', but 3 arguments were provided
+thread::thread(_Fp __f)
+        ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: candidate constructor not viable: requires 1 argument, but 3 were provided
+    thread(const thread&);
+    ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:270:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    thread() _NOEXCEPT : __t_(0) {}
+    ^
+In file included from ../src/Hopscotch.cpp:1:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iostream:38:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/ios:216:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/string:439:
+In file included from /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/algorithm:628:
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/memory:1466:36: error: calling a private constructor of class 'std::__1::thread'
+                ::new ((void*)__p) _Tp(__a0);
+                                   ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/vector:1582:25: note: in instantiation of function template specialization 'std::__1::allocator_traits<std::__1::allocator<std::__1::thread> >::construct<std::__1::thread, std::__1::thread>' requested here
+        __alloc_traits::construct(this->__alloc(),
+                        ^
+../src/Hopscotch.cpp:82:17: note: in instantiation of member function 'std::__1::vector<std::__1::thread, std::__1::allocator<std::__1::thread> >::push_back' requested here
+        Threads.push_back(std::thread(insertKey, &h, i));
+                ^
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/thread:263:5: note: implicitly declared private here
+    thread(const thread&);
+    ^
+5 warnings and 18 errors generated.
+make: *** [src/Hopscotch.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:29:17 **** Incremental Build of configuration Release for project Hopscotch ****
+make all 
+Building file: ../src/Hopscotch.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -Wall -std=c++11 -c -fmessage-length=0 -MMD -MP -MF"src/Hopscotch.d" -MT"src/Hopscotch.o" -o "src/Hopscotch.o" "../src/Hopscotch.cpp"
+Finished building: ../src/Hopscotch.cpp
+ 
+Building file: ../src/LFHash.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -Wall -std=c++11 -c -fmessage-length=0 -MMD -MP -MF"src/LFHash.d" -MT"src/LFHash.o" -o "src/LFHash.o" "../src/LFHash.cpp"
+In file included from ../src/LFHash.cpp:2:
+../src/LFHash.h:125:9: warning: private field 'KEYINFO' is not used [-Wunused-private-field]
+    int KEYINFO = 28;
+        ^
+1 warning generated.
+Finished building: ../src/LFHash.cpp
+ 
+Building target: Hopscotch
+Invoking: MacOS X C++ Linker
+g++  -o "Hopscotch"  ./src/Hopscotch.o ./src/LFHash.o   -lpthread
+Finished building target: Hopscotch
+ 
+22:29:35 **** Incremental Build of configuration Release for project Hopscotch ****
+make all 
+make: Nothing to be done for `all'.
+22:30:06 **** Incremental Build of configuration Release for project Hopscotch ****
+make all 
+make: Nothing to be done for `all'.
+23:36:18 **** Incremental Build of configuration Release for project Hopscotch ****
+make all 
+make: Nothing to be done for `all'.

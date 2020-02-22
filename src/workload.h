@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <unordered_map>
 #include <mutex>
-#define TOTDATA 1024*1024*10
+#define TOTDATA 1024*1024*12
 #ifndef WORKLOAD_H_
 #define WORKLOAD_H_
 
@@ -28,19 +28,20 @@ public:
         }
     }
 
-    void workSplit(int _NoContains, int _NoInserts, int _NoRemove, int threads)
+    void workSplit(int _NoContains, int _NoInserts, int _NoRemove, int threads, double successPercentage)
     {
         tcx = _NoContains/threads;
         tix = _NoInserts/threads;
         trx = _NoRemove/threads;
+	for(int i = 0; i<_NoContains; i++){
+            lookUps[i] = store[i+_NoRemove];}
 
-        for(int i = _NoRemove; i<_NoContains+_NoRemove; i++){
-            lookUps[i] = store[i];}
+	int i=0;
+        for(i = 0; i<_NoRemove; i++){
+            removes[i] = store[i+offset];}
 
-        for(int i = 0; i<_NoRemove; i++){
-            removes[i] = store[i];}
-
-        for(int i=0;i<_NoInserts;i++) {
+	offset = i;	
+        for(i=0;i<_NoInserts/2;i++) {
                     uint32_t key;
                     do {
                         key = (rand() % (1024 * 1024 * 100)) + 1;
@@ -48,6 +49,11 @@ public:
                     dataset[key] = 12;
                     adds[i] = key;
                 }
+	
+        for(int j=0;i<_NoInserts;j++,i++) {
+		adds[i] = lookUps[j];
+	}
+	
 
     }
 
@@ -61,6 +67,7 @@ public:
     uint32_t *adds    = new uint32_t[TOTDATA];
     uint32_t *removes = new uint32_t[TOTDATA];
     int tcx = 0;
+    int offset = 0;
     int tix = 0;
     int trx = 0;
 };

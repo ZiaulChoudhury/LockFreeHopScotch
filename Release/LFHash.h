@@ -10,8 +10,8 @@
 #include <chrono>
 #include <unistd.h>
 #include <bitset>         
-#define TOTDATA 1024*1024*125
-#define TotalBuckets  (1024*1024*51) //33554432 //28311551
+#define TOTDATA 1024*1024*12
+#define TotalBuckets   28311551
 #define mmix(h,k) { k *= m; k ^= k >> r; k *= m; h *= m; h ^= k; }
 
 #ifndef LFHASH_H_
@@ -65,7 +65,6 @@ public:
         h *= m;
         h ^= h >> 15;
         return h % tabsize;
-        //return h & (tabsize-1);
     }
     unsigned int CreateBucketEntry(unsigned int key, unsigned long *NewEntry, short int threadID)
     {
@@ -111,25 +110,22 @@ public:
     	unsigned long _SlotEntry=0;
     	unsigned long cachedEntry;
         unsigned long *a = ( unsigned long *) __builtin_assume_aligned(Buckets, 32) ;
+    	std::bitset<HOP> cxx;
     	#pragma GCC ivdep
     	for(int p=0;p<=H;p++){
-    		index = BaseBucket + p;
-    		_SlotEntry = Buckets[index].load();
-    		Header = getHeader(_SlotEntry);
-    		Header>>=14;
-    		if(Header == 2)
-    			cachedEntry = _SlotEntry;
-    		if(_SlotEntry == 0)
-    			if(Buckets[index].compare_exchange_weak(tag,Entry))
-    				return true;
+    		if((a[BaseBucket + p]>>62) == 2)
+    			cachedEntry = a[BaseBucket + p];
+
+    		if(a[BaseBucket + p] == 0)
+			cxx[p] = __sync_bool_compare_and_swap(&a[BaseBucket+p], tag, Entry);
     	}
+	
+        if(cxx.any())
+		return true;
+	
     	#pragma GCC ivdep
     	for(int p=0;p<=H;p++){
-    		index = BaseBucket + p;
-    		_SlotEntry = Buckets[index].load();
-    		Header = getHeader(_SlotEntry);
-    		Header>>=14;
-    		if(Header == 2)
+    		if((a[BaseBucket + p]>>62) == 2)
     			if(_SlotEntry != cachedEntry)
     				return false;
     			else
@@ -140,19 +136,17 @@ public:
     }
     bool  add(unsigned int key)
     {
-    	unsigned long  Entry, E = key;
+    	unsigned long  Entry;
     	unsigned long tag=0;
     	unsigned int SlotIndex = CreateBucketEntry(key, &Entry, 0);
     	unsigned int BaseBucket = SlotIndex;
     	int trails=0;
-	int failed = 0;
     	if(contains(key))
         	return true;
     	do
     	{
-        	while(trails++ < ADD_RANGE && Buckets[SlotIndex].load()!=0) {
+        	while(trails++ < ADD_RANGE && Buckets[SlotIndex].load()!=0)
             		SlotIndex++;
-		}
     	}while(!Buckets[SlotIndex].compare_exchange_weak(tag,Entry) && trails < ADD_RANGE);
     	if(trails >= ADD_RANGE){std::cout<< " insertion failure "  << trails;exit(0);}
     	if((SlotIndex - BaseBucket)> H){
@@ -161,7 +155,7 @@ public:
             		SlotIndex = this->Relocate(SlotIndex, Entry);
             		if(prevSlot == SlotIndex){exit(0);}
         	}while((SlotIndex - BaseBucket) > H);}
-	
+
     	unsigned long Exp = Buckets[SlotIndex].load();
     	Buckets[SlotIndex].compare_exchange_weak(Exp,0);
     	while(!BucketInsert(BaseBucket,key)){}
@@ -255,11 +249,11 @@ public:
             _Slot |= (1L<<62);  
             rem2 =  __sync_bool_compare_and_swap(&a[InitialSlot+i2], _Slot, FinalEntry); //Buckets[InitialSlot+i2].compare_exchange_weak(_Slot,FinalEntry);
             
-            for(int p=0;p<=H;p++){
+            /*for(int p=0;p<=H;p++){
                 _Slot = Buckets[InitialSlot + p];
                 _Slot =((_Slot<<2)>>2)|(3L << 62); 
                 if((Buckets[InitialSlot+p]>>62) == 3)
-                        Buckets[InitialSlot+p].compare_exchange_weak(_Slot, random);}
+                        Buckets[InitialSlot+p].compare_exchange_weak(_Slot, random);}*/
             return rem1 or rem2;
      }
 protected:

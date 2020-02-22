@@ -1,0 +1,80 @@
+Threads = 2
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 24 milliseconds  Throughput = 100 MQPS 
+-------------------------------------------------------
+Threads = 4
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 12 milliseconds  Throughput = 200 MQPS 
+-------------------------------------------------------
+Threads = 6
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 9 milliseconds  Throughput = 266.667 MQPS 
+-------------------------------------------------------
+Threads = 8
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 12 milliseconds  Throughput = 200 MQPS 
+-------------------------------------------------------
+Threads = 10
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 10 milliseconds  Throughput = 240 MQPS 
+-------------------------------------------------------
+Threads = 12
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 12 milliseconds  Throughput = 200 MQPS 
+-------------------------------------------------------
+Threads = 14
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 12 milliseconds  Throughput = 200 MQPS 
+-------------------------------------------------------
+Threads = 16
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 10 milliseconds  Throughput = 240 MQPS 
+-------------------------------------------------------
+Threads = 18
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 9 milliseconds  Throughput = 266.667 MQPS 
+-------------------------------------------------------
+Threads = 20
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 10 milliseconds  Throughput = 240 MQPS 
+-------------------------------------------------------
+Threads = 22
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 8 milliseconds  Throughput = 300 MQPS 
+-------------------------------------------------------
+Threads = 24
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 12 milliseconds  Throughput = 200 MQPS 
+-------------------------------------------------------
+Threads = 26
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 10 milliseconds  Throughput = 240 MQPS 
+-------------------------------------------------------
+Threads = 28
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 10 milliseconds  Throughput = 240 MQPS 
+-------------------------------------------------------
+Threads = 30
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 9 milliseconds  Throughput = 266.667 MQPS 
+-------------------------------------------------------
+Threads = 32
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 10 milliseconds  Throughput = 240 MQPS 
+-------------------------------------------------------
+Threads = 34
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 9 milliseconds  Throughput = 266.667 MQPS 
+-------------------------------------------------------
+Threads = 36
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 9 milliseconds  Throughput = 266.667 MQPS 
+-------------------------------------------------------
+Threads = 38
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 12 milliseconds  Throughput = 200 MQPS 
+-------------------------------------------------------
+Threads = 40
+Hash Table Initilized 
+[ 83.3333% contains 8.33333% inserts 8.33333% removes ]  Time = 13 milliseconds  Throughput = 184.615 MQPS 
+-------------------------------------------------------

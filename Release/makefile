@@ -52,6 +52,7 @@ Hopscotch: $(OBJS) $(USER_OBJS)
 clean:
 	-$(RM) $(CC_DEPS)$(C++_DEPS)$(EXECUTABLES)$(OBJS)$(C_UPPER_DEPS)$(CXX_DEPS)$(CPP_DEPS)$(C_DEPS) Hopscotch
 	-@echo ' '
+	rm -rf papi*
 
 .PHONY: all clean dependents
 

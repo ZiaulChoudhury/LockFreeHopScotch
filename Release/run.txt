@@ -1,0 +1,96 @@
+Threads = 2
+[ 0% contains 100% inserts 0% removes ]  Time = 661 milliseconds  Throughput = 19.0362 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 159 milliseconds  Throughput = 79.1378 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 42 milliseconds  Throughput = 73.8095 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 4
+[ 0% contains 100% inserts 0% removes ]  Time = 358 milliseconds  Throughput = 35.1478 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 90 milliseconds  Throughput = 139.81 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 29 milliseconds  Throughput = 106.897 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 6
+[ 0% contains 100% inserts 0% removes ]  Time = 267 milliseconds  Throughput = 47.127 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 80 milliseconds  Throughput = 157.286 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 25 milliseconds  Throughput = 124 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 8
+[ 0% contains 100% inserts 0% removes ]  Time = 245 milliseconds  Throughput = 51.3588 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 82 milliseconds  Throughput = 153.45 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 23 milliseconds  Throughput = 134.783 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 10
+[ 0% contains 100% inserts 0% removes ]  Time = 210 milliseconds  Throughput = 59.9186 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 70 milliseconds  Throughput = 179.756 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 21 milliseconds  Throughput = 147.619 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 12
+[ 0% contains 100% inserts 0% removes ]  Time = 194 milliseconds  Throughput = 64.8604 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 63 milliseconds  Throughput = 199.729 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 19 milliseconds  Throughput = 163.158 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 14
+[ 0% contains 100% inserts 0% removes ]  Time = 215 milliseconds  Throughput = 58.5252 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 74 milliseconds  Throughput = 170.039 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 23 milliseconds  Throughput = 134.783 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 16
+[ 0% contains 100% inserts 0% removes ]  Time = 222 milliseconds  Throughput = 56.6798 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 72 milliseconds  Throughput = 174.763 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 22 milliseconds  Throughput = 140.909 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 18
+[ 0% contains 100% inserts 0% removes ]  Time = 196 milliseconds  Throughput = 64.1985 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 68 milliseconds  Throughput = 185.043 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 20 milliseconds  Throughput = 155 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 20
+[ 0% contains 100% inserts 0% removes ]  Time = 198 milliseconds  Throughput = 63.5501 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 69 milliseconds  Throughput = 182.361 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 19 milliseconds  Throughput = 163.158 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 22
+[ 0% contains 100% inserts 0% removes ]  Time = 198 milliseconds  Throughput = 63.5501 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 67 milliseconds  Throughput = 187.805 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 18 milliseconds  Throughput = 172.222 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 24
+[ 0% contains 100% inserts 0% removes ]  Time = 197 milliseconds  Throughput = 63.8726 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 65 milliseconds  Throughput = 193.583 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 18 milliseconds  Throughput = 172.222 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 26
+[ 0% contains 100% inserts 0% removes ]  Time = 197 milliseconds  Throughput = 63.8726 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 70 milliseconds  Throughput = 179.756 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 21 milliseconds  Throughput = 147.619 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 28
+[ 0% contains 100% inserts 0% removes ]  Time = 195 milliseconds  Throughput = 64.5278 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 65 milliseconds  Throughput = 193.583 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 19 milliseconds  Throughput = 163.158 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 30
+[ 0% contains 100% inserts 0% removes ]  Time = 201 milliseconds  Throughput = 62.6016 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 67 milliseconds  Throughput = 187.805 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 20 milliseconds  Throughput = 155 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------
+Threads = 32
+[ 0% contains 100% inserts 0% removes ]  Time = 198 milliseconds  Throughput = 63.5501 MQPS 
+[ 100% contains 0% inserts 0% removes ]  Time = 65 milliseconds  Throughput = 193.583 MQPS 
+[ 96.7742% contains 1.6129% inserts 1.6129% removes ]  Time = 19 milliseconds  Throughput = 163.158 MQPS 
+LOAD FACTOR = 0.444444
+-------------------------------------------------------

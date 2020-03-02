@@ -80,6 +80,7 @@ void worker(LFHash *h, workload *wx, int tid)
 
 int main (int argc, char* argv[])
 {
+    int updatePercentage = atoi(argv[2]);
     THREADS=atoi(argv[1]);
     DATAPERTHREAD=TOTDATA/THREADS;
     LFHash h;
@@ -135,7 +136,7 @@ int main (int argc, char* argv[])
       //   << el <<" milliseconds " <<" Throughput = " << ((TOTDATA/el)*1000)/1000000 <<" MQPS \n";
     
     int QUERIES;
-    double updateRate[10] = {10};
+    double updateRate[10] = {updatePercentage};
     for(int ixx=0;ixx<1;ixx++) {
         
 	double rate = updateRate[ixx]/100;

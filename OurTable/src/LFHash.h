@@ -10,8 +10,8 @@
 #include <chrono>
 #include <unistd.h>
 #include <bitset>         
-#define TOTDATA 1024*1024*125
-#define TotalBuckets  (1024*1024*51) //33554432 //28311551
+#define TOTDATA 1024*1024*12
+#define TotalBuckets  (1024*1024*31) //33554432 //28311551
 #define mmix(h,k) { k *= m; k ^= k >> r; k *= m; h *= m; h ^= k; }
 
 #ifndef LFHASH_H_
@@ -226,7 +226,7 @@ public:
      {       
             unsigned int  InitialSlot =  MurmurHash2A((const void*)&key, 4, TotalBuckets);
             unsigned long _Slot = 0;
-            unsigned int  FinalEntry = tid; //TimeStamp();
+            unsigned int  FinalEntry = TimeStamp();
             FinalEntry =  ((FinalEntry<<2)>>2)|(2L << 62);
             bool rem1 = false;
             bool rem2 = false;

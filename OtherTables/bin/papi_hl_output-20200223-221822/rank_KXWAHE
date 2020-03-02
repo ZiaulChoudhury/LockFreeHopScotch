@@ -1,0 +1,20 @@
+{
+  "cpu in mhz":"4600",
+  "threads":[
+    {
+      "id":"139856074880960",
+      "regions":[
+        {
+          "computation":{
+            "region_count":"1",
+            "cycles":"3274461544",
+            "PAPI_L1_TCM":"1586315",
+            "PAPI_L1_DCM":"1580423",
+            "PAPI_TOT_INS":"26286686",
+            "PAPI_TOT_CYC":"33085726"
+          }
+        }
+      ]
+    }
+  ]
+}

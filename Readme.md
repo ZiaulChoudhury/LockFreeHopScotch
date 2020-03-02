@@ -13,6 +13,8 @@ Directory Structure
   
   3. The run script is run.sh 
   
+  4. Run operations on our hash table by ./Hopscotch #NumThreads #Percentage updates
+  
   Benchmarking. 
   
   1. The source files for the other hash tables are located in OtherTables/src. 

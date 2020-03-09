@@ -1,11 +1,11 @@
-Directory Structure
+# Directory Structure
 
-  OurTable - Contains the code for our Hash Table.
+  `OurTable` - Contains the code for our Hash Table.
   
-  OtherTables - Contains code for the other hash tables considered in the paper. 
+  `OtherTables` - Contains code for the other hash tables considered in the paper. 
   
   
-  Compilation steps. 
+  # Compilation steps. 
   
   1. The source files for our hash table is located in OurTable/src.
   
@@ -15,7 +15,7 @@ Directory Structure
   
   4. Run operations on our hash table by ./Hopscotch #NumThreads #Percentage updates
   
-  Benchmarking. 
+  # Benchmarking. 
   
   1. The source files for the other hash tables are located in OtherTables/src. 
   
